@@ -1,8 +1,8 @@
 body {
     font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
 }
 
 .chat-container {
@@ -11,11 +11,11 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
     position: fixed;
     right: 40px;
     bottom: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .chatbot header{
@@ -30,12 +30,12 @@ body {
 }
 
 
-.chat-box {
+.chatbox {
     list-style: none;
     padding: 0;
+    margin: 0;
     max-height: 300px;
     overflow-y: auto;
-    margin: 0;
 }
 
 
@@ -68,14 +68,14 @@ li{
     display: flex;
     align-items: center;
     padding: 10px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #ccc;
     background-color: #f7f7f7;
 }
 
 
 .user-input input {
-    flex-grow: 1;
     padding: 10px;
+    flex-grow: 1;
     border: none;
     border-radius: 5px;
     margin-right: 10px;
@@ -83,26 +83,16 @@ li{
 
 
 .user-input button {
-    border: none;
-    background-color: #90a073;
-    color: white;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    border: none;
+    background-color: #90a073;
+    color: #fff;
+    padding: 10px 20px;
 }
 
 
 .user-input button:hover {
     background-color: #7c8964;
-}
-
-
-@media screen and (max-width: 480px) {
-    .chatbot-container {
-        max-width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-    }
 }
 

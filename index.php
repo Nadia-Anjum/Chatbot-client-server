@@ -25,13 +25,29 @@
             <li class="message received">
                 <?php if($myInput == "What can you do?"){
                 echo "I can answer your questions";
+
                 } elseif ($myInput == "How old are you?") {
                 echo "I don't have an age";
+                }
+                
+                elseif ($myInput == "Hvor gammel er du?") {
+                    echo "Jeg har ikke en alder";
+                    }
+
+                elseif ($myInput == "Hello") {
+                        echo "Hello Human";
+                    } 
+
+                elseif ($myInput == "Who am i?") {
+                echo "I don't know who you are";
+
                 } else echo "I don't understand";
+
                 ?>
         </li>
 
         </ul>
+        
         
         <form class="user-input" method="get" action="?">
             <input type="text" name="myInput" placeholder="Type your message...">

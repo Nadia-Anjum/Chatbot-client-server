@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,21 +16,26 @@
 
         <ul class="chatbox">
             <li class="message received">Hello, how can i help you?</li>
-            <li class="message sent">What is your name?</li>
-            <li class="message received">My name is Chatbot</li>
 
+            <li class="message sent"> 
+                <?php $myInput = $_GET['myInput']; {
+                echo $_GET['myInput']; } ?>
+             </li>
 
-            <li class="message sent">What can you do?</li>
-            <li class="message received">I can answer your questions</li>
+            <li class="message received">
+                <?php if($myInput == "What can you do?"){
+                echo "I can answer your questions";
+                } elseif ($myInput == "How old are you?") {
+                echo "I don't have an age";
+                } else echo "I don't understand";
+                ?>
+        </li>
 
-
-            <li class="message sent">What is the capital city of Denmark?</li>
-            <li class="message received">The capital city of Denmark is Copenhagen</li>
         </ul>
         
-        <form class="user-input">
-            <input type="text" placeholder="Type your message...">
-            <button type="submit">Send</button>
+        <form class="user-input" method="get" action="?">
+            <input type="text" name="myInput" placeholder="Type your message...">
+            <button type="submit" value="CLICK ME">Send</button>
         </form>
     </div>
 </div>

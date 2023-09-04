@@ -97,3 +97,9 @@ li{
     background-color: #7c8964;
 }
 
+#tegnTæller{
+    font-size: 10px;
+    margin-bottom: 0;
+    margin-right: 2px;
+    text-align: end;
+}

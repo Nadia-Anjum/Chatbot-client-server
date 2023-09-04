@@ -39,31 +39,32 @@
 
                     ?>
                 </li>
-                <p id="tegnTæller">Antal tegn: 0</p>
+                <p id="CharacterCount">Character count: 0</p>
             </ul>
 
 
             <form class="user-input" method="get" action="?">
-                <input type="text" name="myInput" for="tekstfelt" id="tekstfelt" placeholder="Type your message...">
+                <input type="text" name="myInput" for="inputfield2" id="inputfield" placeholder="Type your message...">
+
                 <button type="submit" value="CLICK ME">Send</button>
             </form>
         </div>
     </div>
     <script>
-        // Hent inputfeltet og tegntæller-paragraph ved hjælp af querySelector
-        const tekstfelt = document.querySelector("#tekstfelt");
-        const tegnTæller = document.querySelector("#tegnTæller");
+        // Hent inputfeltet og CharacterCount-paragraph ved hjælp af querySelector
+        const inputfield = document.querySelector("#inputfield");
+        const CharacterCount = document.querySelector("#CharacterCount");
 
         // Tilføj en event listener til inputfeltet, der lytter efter tastetryk
-        tekstfelt.addEventListener("input", opdaterTegnTæller);
+        inputfield.addEventListener("input", opdaterCharacterCount);
 
-        // Funktion til at opdatere tegntælleren
-        function opdaterTegnTæller() {
+        // Funktion til at opdatere CharacterCounten
+        function opdaterCharacterCount() {
             // Hent længden af tekst i inputfeltet
-            const tekstLængde = tekstfelt.value.length;
+            const textLength = inputfield.value.length;
 
-            // Opdater tekst i tegntæller-paragraphen
-            tegnTæller.textContent = `Antal tegn: ${tekstLængde}`;
+            // Opdater tekst i CharacterCount-paragraphen
+            CharacterCount.textContent = `Character count: ${textLength}`;
         }
     </script>
 

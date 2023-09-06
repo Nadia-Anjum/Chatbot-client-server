@@ -16,7 +16,7 @@
             </header>
 
             <ul class="chatbox">
-                <li class="message received">Hello, how can i help you?</li>
+                <li class="message received">Hello, this is Chatbot</li>
 
                 <li class="message sent">
                     <?php $myInput = $_GET['myInput']; {
@@ -25,18 +25,18 @@
                 </li>
 
                 <li class="message received">
-                    <?php if ($myInput == "What can you do?") {
-                        echo "I can answer your questions";
-                    } elseif ($myInput == "How old are you?") {
-                        echo "I don't have an age";
-                    } elseif ($myInput == "Hvor gammel er du?") {
-                        echo "Jeg har ikke en alder";
-                    } elseif ($myInput == "Hello") {
-                        echo "Hello Human";
-                    } elseif ($myInput == "Who am i?") {
-                        echo "I don't know who you are";
-                    } else echo "I don't understand";
+                    <?php 
 
+                    if (strpos(strtolower($myInput), "hello") !== false) {
+                        echo "Hello, what can i help you with?";
+                        } elseif (strpos(strtolower($myInput), "hej") !== false) {
+                        echo "Hej, hvad kan jeg hjælpe dig med?";
+                        } elseif ($myInput == "What is the Capital city of Denmark?") {
+                            echo "The capital city of Denmark is Copenhagen.";
+                        } else {
+                        echo "I don't understand";
+                        }
+                        
                     ?>
                 </li>
                 <p id="CharacterCount">Character count: 0</p>
@@ -44,9 +44,9 @@
 
 
             <form class="user-input" method="get" action="?">
-                <input type="text" name="myInput" for="inputfield2" id="inputfield" placeholder="Type your message...">
+                <input type="text" name="myInput" for="inputfield2" id="inputfield" placeholder="Type your message..." oninvalid="alert('You must fill out the message!');" required>
 
-                <button type="submit" value="CLICK ME">Send</button>
+                <button type="submit">Send</button>
             </form>
         </div>
     </div>
@@ -67,7 +67,6 @@
             CharacterCount.textContent = `Character count: ${textLength}`;
         }
     </script>
-
 
 
 

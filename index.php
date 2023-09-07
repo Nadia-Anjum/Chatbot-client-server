@@ -25,18 +25,18 @@
                 </li>
 
                 <li class="message received">
-                    <?php 
+                    <?php
 
                     if (strpos(strtolower($myInput), "hello") !== false) {
                         echo "Hello, what can i help you with?";
-                        } elseif (strpos(strtolower($myInput), "hej") !== false) {
+                    } elseif (strpos(strtolower($myInput), "hej") !== false) {
                         echo "Hej, hvad kan jeg hjælpe dig med?";
-                        } elseif ($myInput == "What is the Capital city of Denmark?") {
-                            echo "The capital city of Denmark is Copenhagen.";
-                        } else {
+                    } elseif ($myInput == "What is the Capital city of Denmark?") {
+                        echo "The capital city of Denmark is Copenhagen.";
+                    } else {
                         echo "I don't understand";
-                        }
-                        
+                    }
+
                     ?>
                 </li>
                 <p id="CharacterCount">Character count: 0</p>

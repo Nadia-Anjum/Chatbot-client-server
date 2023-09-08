@@ -1,35 +1,29 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['talhistory'])) {
-    $_SESSION['talhistory'] = "";
+
+$myInput = isset($_SESSION['myInput']) ? $_SESSION['myInput'] : '';
+$chatbotResponse = ""; // Initialize chatbot response variable
+
+
+if (isset($_GET['myInput'])) {
+    $myInput = $_GET['myInput'];
+    $_SESSION['myInput'] = $myInput;
+
+
+    if (strpos(strtolower($myInput), "hello") !== false) {
+        $chatbotResponse = "Hello, what can I help you with? ";
+    } elseif (strpos(strtolower($myInput), "hej") !== false) {
+        $chatbotResponse = "Hej, hvad kan jeg hjælpe dig med?";
+    } else {
+        $chatbotResponse = "I don't understand";
+    }
 }
 
-$infoQuestion = "What is the capital city of Denmark?";
-$infoAnswer = "The capital city of Denmark is Copenhagen.";
 
-$infoQuestion2 = "What is the official language in Denmark?";
-$infoAnswer2 = "The official language in Denmark is Danish.";
-
-$infoQuestion3 = "What is Denmark famous for?";
-$infoAnswer3 = "Denmark is famous for the little mermaid.";
-
-$_SESSION['talhistory'] .= " " . $infoQuestion;
-
-echo $infoQuestion;
-echo "<br>";
-echo $infoAnswer;
-echo "<br>";
-echo $infoQuestion2;
-echo "<br>";
-echo $infoAnswer2;
-echo "<br>";
-echo $infoQuestion3;
-echo "<br>";
-echo $infoAnswer3;
+$_SESSION['history'][] = $myInput;
+$_SESSION['history'][] = $chatbotResponse;
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,28 +49,31 @@ echo $infoAnswer3;
                     <?php
                     $myInput = isset($_GET['myInput']) ? $_GET['myInput'] : '';
                     echo $myInput;
+
                     ?>
                 </li>
-
 
                 <li class="message received">
+
                     <?php
-
-                    if (strpos(strtolower($myInput), "hello") !== false) {
-                        echo "Hello, what can i help you with?";
-                    } elseif (strpos(strtolower($myInput), "hej") !== false) {
-                        echo "Hej, hvad kan jeg hjælpe dig med?";
-                    } else {
-                        echo "I don't understand";
+                    // Display the chatbot's response
+                    echo $chatbotResponse;
+                    echo "<br>";
+                    foreach ($_SESSION['history'] as $message) {
+                        echo $message;
                     }
-
                     ?>
+
                 </li>
+
+
+
+
                 <p id="CharacterCount">Character count: 0</p>
             </ul>
 
 
-            <form class="user-input" method="get" action="?">
+            <form class="user-input" method="get" action="">
                 <input type="text" name="myInput" id="inputfield" placeholder="Type your message..." oninvalid="alert('You must fill out the message!');" required>
 
                 <button type="submit">Send</button>

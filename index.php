@@ -1,3 +1,36 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['talhistory'])) {
+    $_SESSION['talhistory'] = "";
+}
+
+$infoQuestion = "What is the capital city of Denmark?";
+$infoAnswer = "The capital city of Denmark is Copenhagen.";
+
+$infoQuestion2 = "What is the official language in Denmark?";
+$infoAnswer2 = "The official language in Denmark is Danish.";
+
+$infoQuestion3 = "What is Denmark famous for?";
+$infoAnswer3 = "Denmark is famous for the little mermaid.";
+
+$_SESSION['talhistory'] .= " " . $infoQuestion;
+
+echo $infoQuestion;
+echo "<br>";
+echo $infoAnswer;
+echo "<br>";
+echo $infoQuestion2;
+echo "<br>";
+echo $infoAnswer2;
+echo "<br>";
+echo $infoQuestion3;
+echo "<br>";
+echo $infoAnswer3;
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +52,12 @@
                 <li class="message received">Hello, this is Chatbot</li>
 
                 <li class="message sent">
-                    <?php $myInput = $_GET['myInput']; {
-                        echo $_GET['myInput'];
-                    } ?>
+                    <?php
+                    $myInput = isset($_GET['myInput']) ? $_GET['myInput'] : '';
+                    echo $myInput;
+                    ?>
                 </li>
+
 
                 <li class="message received">
                     <?php
@@ -31,8 +66,6 @@
                         echo "Hello, what can i help you with?";
                     } elseif (strpos(strtolower($myInput), "hej") !== false) {
                         echo "Hej, hvad kan jeg hjælpe dig med?";
-                    } elseif ($myInput == "What is the Capital city of Denmark?") {
-                        echo "The capital city of Denmark is Copenhagen.";
                     } else {
                         echo "I don't understand";
                     }
@@ -44,7 +77,7 @@
 
 
             <form class="user-input" method="get" action="?">
-                <input type="text" name="myInput" for="inputfield2" id="inputfield" placeholder="Type your message..." oninvalid="alert('You must fill out the message!');" required>
+                <input type="text" name="myInput" id="inputfield" placeholder="Type your message..." oninvalid="alert('You must fill out the message!');" required>
 
                 <button type="submit">Send</button>
             </form>

@@ -1,0 +1,29 @@
+{
+    "questionAnswer": [
+      {
+        "question": "What is your name?",
+        "answer": "My name is Chatbot."
+      },
+      {
+        "question": "How old are you?",
+        "answer": "I am a chatbot, i don't have an age."
+      },
+      {
+        "question": "What can you do?",
+        "answer": "I can answer your questions and help you."
+      },
+      {
+        "question": "What is the capital city of Denmark?",
+        "answer": "The capital city of Denmark is Copgenhagen."
+      },
+      {
+        "question": "What is Denmark famous for?",
+        "answer": "Denmark is famous for the little mermaid and HC Andersen."
+      },
+      {
+        "question": "What is the official language in Denmark",
+        "answer": "The official language is Danish."
+      }
+    ]
+  }
+  

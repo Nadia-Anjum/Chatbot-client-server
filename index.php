@@ -1,15 +1,17 @@
 <?php
 session_start();
 
-
+// Initialize user input and chatbot response
 $myInput = isset($_SESSION['myInput']) ? $_SESSION['myInput'] : '';
-$chatbotResponse = ""; // Initialize chatbot response variable
+$chatbotResponse = "";
 
+if (!isset($_SESSION['history'])) {
+    $_SESSION['history'] = array(); // Initialiser history som en tom array, hvis det ikke eksisterer
+}
 
 if (isset($_GET['myInput'])) {
     $myInput = $_GET['myInput'];
     $_SESSION['myInput'] = $myInput;
-
 
     if (strpos(strtolower($myInput), "hello") !== false) {
         $chatbotResponse = "Hello, what can I help you with? ";
@@ -18,12 +20,13 @@ if (isset($_GET['myInput'])) {
     } else {
         $chatbotResponse = "I don't understand";
     }
+
+    // Append user input and chatbot response as new <li> elements
+    $_SESSION['history'][] = '<li class="message sent"> ' . $myInput . '</li>';
+    $_SESSION['history'][] = '<li class="message received"> ' . $chatbotResponse . '</li>';
 }
-
-
-$_SESSION['history'][] = $myInput;
-$_SESSION['history'][] = $chatbotResponse;
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

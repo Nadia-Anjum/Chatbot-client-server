@@ -11,7 +11,7 @@ if (!isset($_SESSION['history'])) {
 
 if (isset($_GET['myInput'])) {
     $myInput = $_GET['myInput'];
-    $_SESSION['myInput'] = $myInput;
+
 
     if (strpos(strtolower($myInput), "hello") !== false) {
         $chatbotResponse = "Hello, what can I help you with? ";
@@ -22,8 +22,8 @@ if (isset($_GET['myInput'])) {
     }
 
     // Append user input and chatbot response as new <li> elements
-    $_SESSION['history'][] = '<li class="message sent"> ' . $myInput . '</li>';
-    $_SESSION['history'][] = '<li class="message received"> ' . $chatbotResponse . '</li>';
+    $_SESSION['history'][] =  $myInput;
+    $_SESSION['history'][] = $chatbotResponse;
 }
 ?>
 
@@ -48,29 +48,22 @@ if (isset($_GET['myInput'])) {
             <ul class="chatbox">
                 <li class="message received">Hello, this is Chatbot</li>
 
-                <li class="message sent">
-                    <?php
-                    $myInput = isset($_GET['myInput']) ? $_GET['myInput'] : '';
-                    echo $myInput;
+                <?php
 
-                    ?>
-                </li>
+                $count = count($_SESSION['history']);
 
-                <li class="message received">
-
-                    <?php
-                    // Display the chatbot's response
-                    echo $chatbotResponse;
-                    echo "<br>";
-                    foreach ($_SESSION['history'] as $message) {
-                        echo $message;
+                // Loop 
+                for ($i = 0; $i < $count; $i++) {
+                    // Tjek om tallet er lige eller ulige
+                    if ($i % 2 === 0) {
+                        // Lige tal
+                        echo '<li class="message sent">' . $_SESSION['history'][$i] . '</li>';
+                    } else {
+                        // Ulige tal
+                        echo '<li class="message received">' . $_SESSION['history'][$i] . '</li>';
                     }
-                    ?>
-
-                </li>
-
-
-
+                }
+                ?>
 
                 <p id="CharacterCount">Character count: 0</p>
             </ul>

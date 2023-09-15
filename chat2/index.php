@@ -12,7 +12,7 @@
 
     <script>
         // Fetch the "chat" endpoint
-        fetch('chat.php')
+        fetch('http://localhost:3000/chat2/api/pokemon/')
             .then(response => response.json())
             .then(data => {
                 // Print the response to the console

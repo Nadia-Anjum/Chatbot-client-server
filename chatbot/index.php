@@ -12,13 +12,32 @@ if (!isset($_SESSION['history'])) {
 if (isset($_GET['myInput'])) {
     $myInput = $_GET['myInput'];
 
-
-    if (strpos(strtolower($myInput), "hello") !== false) {
+    // Check for greetings
+    if (stripos($myInput, "hello") !== false) {
         $chatbotResponse = "Hello, what can I help you with? ";
-    } elseif (strpos(strtolower($myInput), "hej") !== false) {
+    } elseif (stripos($myInput, "hej") !== false) {
         $chatbotResponse = "Hej, hvad kan jeg hjælpe dig med?";
     } else {
-        $chatbotResponse = "I don't understand";
+        // Check for Copenhagen facts
+        $copenhagenFacts = array(
+            "indbygger" => "København har en befolkning på cirka 600.000 mennesker.",
+            "hovedstad" => "Ja, København er hovedstaden i Danmark.",
+            "kendt" => "En berømt vartegn i København er Den Lille Havfrue.",
+            "sprog" => "Det officielle sprog i København er dansk.",
+            "mad" => "København er kendt for sin lækre madscene og nordisk køkken."
+        );
+
+        // Loop gennem fakta og generer svar, hvis der er et match
+        foreach ($copenhagenFacts as $keyword => $response) {
+            if (stripos($myInput, $keyword) !== false) {
+                $chatbotResponse = $response;
+                break; // Stop løkken, når der er fundet et match
+            }
+        }
+
+        if (empty($chatbotResponse)) {
+            $chatbotResponse = "I don't have information on that topic."; // Standardrespons
+        }
     }
 
     // Append user input and chatbot response as new <li> elements

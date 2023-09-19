@@ -13,16 +13,16 @@
         "answer": "I can answer your questions and help you."
       },
       {
-        "question": "What is the capital city of Denmark?",
-        "answer": "The capital city of Denmark is Copgenhagen."
+        "spørgsmål": "Hvor mange mennesker bor der i Danmark?",
+        "svar": "Danmark har en befolkning på cirka 5,8 millioner mennesker (2021)."
       },
       {
-        "question": "What is Denmark famous for?",
-        "answer": "Denmark is famous for the little mermaid and HC Andersen."
+        "spørgsmål": "Hvad er den officielle valuta i Danmark?",
+        "svar": "Den officielle valuta i Danmark er den danske krone (DKK)."
       },
       {
-        "question": "What is the official language in Denmark",
-        "answer": "The official language is Danish."
+        "spørgsmål": "Hvad er Danmarks nationalflag?",
+        "svar": "Danmarks nationalflag er kendt som 'Dannebrog' og har en rød baggrund med en hvid kors i midten."
       }
     ]
   }

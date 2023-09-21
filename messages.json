@@ -13,16 +13,16 @@
         "answer": "I can answer your questions and help you."
       },
       {
-        "spørgsmål": "Hvor mange mennesker bor der i Danmark?",
-        "svar": "Danmark har en befolkning på cirka 5,8 millioner mennesker (2021)."
+        "question": "Hvor mange mennesker bor der i Danmark?",
+        "answer": "Danmark har en befolkning på cirka 5,8 millioner mennesker (2021)."
       },
       {
-        "spørgsmål": "Hvad er den officielle valuta i Danmark?",
-        "svar": "Den officielle valuta i Danmark er den danske krone (DKK)."
+        "question": "Hvad er den officielle valuta i Danmark?",
+        "answer": "Den officielle valuta i Danmark er den danske krone (DKK)."
       },
       {
-        "spørgsmål": "Hvad er Danmarks nationalflag?",
-        "svar": "Danmarks nationalflag er kendt som 'Dannebrog' og har en rød baggrund med en hvid kors i midten."
+        "question": "Hvad er Danmarks nationalflag?",
+        "answer": "Danmarks nationalflag er kendt som 'Dannebrog' og har en rød baggrund med en hvid kors i midten."
       }
     ]
   }

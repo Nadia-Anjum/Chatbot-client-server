@@ -1,19 +1,28 @@
 <?php
-session_start();
-
-// Check if chat history exists in the session
 if (!isset($_SESSION['history'])) {
     $_SESSION['history'] = array(); // Initialize history as an empty array if it doesn't exist
 }
 
-// Function to add a message to the chat history
-function addToChatHistory($userInput, $chatbotResponse) {
+function addToChatHistory($userInput, $chatbotResponse)
+{
     $_SESSION['history'][] = $userInput;
     $_SESSION['history'][] = $chatbotResponse;
 }
 
-// Function to get the chat history as an array
-function getChatHistory() {
+function getChatHistory()
+{
     return $_SESSION['history'];
 }
-?>
+
+// Check for the request method (assuming it's a GET request)
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    // Get the chat history
+    $chatHistory = getChatHistory();
+
+    // Send chat history as JSON
+    header('Content-Type: application/json');
+    echo json_encode($chatHistory);
+} else {
+    // Handle other request methods if needed
+    http_response_code(405); // Method Not Allowed
+}

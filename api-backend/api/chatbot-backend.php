@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'history.php'; // Include the history file
+require_once 'history2.php'; // Include the history file
 
 // Initialize user input and chatbot response
 $myInput = isset($_POST['myInput']) ? $_POST['myInput'] : '';

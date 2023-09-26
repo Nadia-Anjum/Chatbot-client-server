@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
         })
             .then(response => response.json())
             .then(data => {
-                // Display chat history on the page
-                chatbox.innerHTML = data.history;
+                // Display chat history on the page one message at a time
+                displayChatHistory(data.history);
             })
             .catch(error => console.error('Fejl ved indlæsning af chat historie:', error));
     }
@@ -30,32 +30,60 @@ document.addEventListener("DOMContentLoaded", function () {
             })
                 .then(response => response.json())
                 .then(data => {
-                    // Append user's input and chatbot's response to chatbox
-                    chatbox.innerHTML += '<li class="message sent">' + userInput + '</li>';
-                    chatbox.innerHTML += '<li class="message received">' + data.response + '</li>';
+                    // Append user's input to chatbox
+                    appendMessage(userInput, 'sent');
+                    // Wait for a short delay before appending chatbot's response
+                    setTimeout(() => {
+                        appendMessage(data.response, 'received');
+                        // Scroll chatbox to the bottom to show the latest message
+                        chatbox.scrollTop = chatbox.scrollHeight;
+                    }, 500); // Adjust the delay as needed
                     inputfield.value = '';
-
-                    // Scroll chatbox to the bottom to show the latest message
-                    chatbox.scrollTop = chatbox.scrollHeight;
                 })
                 .catch(error => console.error('Fejl ved chatbot-forespørgsel:', error));
         }
     });
+
+    // Function to display chat history one message at a time
+    function displayChatHistory(history) {
+        let index = 0;
+
+        function displayNextMessage() {
+            if (index < history.length) {
+                const message = history[index];
+                const messageType = index % 2 === 0 ? 'sent' : 'received';
+                appendMessage(message, messageType);
+                index++;
+                setTimeout(displayNextMessage, 500); // Adjust the delay between messages
+            }
+        }
+
+        displayNextMessage();
+    }
+
+    // Function to append a message to chatbox
+    function appendMessage(messageText, messageType) {
+        const messageElement = document.createElement('li');
+        messageElement.className = `message ${messageType}`;
+        messageElement.textContent = messageText;
+        chatbox.appendChild(messageElement);
+    }
 });
 
 
 
-// Hent inputfeltet og CharacterCount-paragraph ved hjælp af querySelector
+
+// Get the input field and CharacterCount paragraph using querySelector
 const inputfield = document.querySelector("#inputfield");
 const CharacterCount = document.querySelector("#CharacterCount");
 
-// Tilføj en event listener til inputfeltet, der lytter efter tastetryk
+// Add an event listener to the input field listening for input events
 inputfield.addEventListener("input", opdaterCharacterCount);
 
-// Funktion til at opdatere CharacterCounten
+// Function to update the CharacterCount
 function opdaterCharacterCount() {
-    // Hent længden af tekst i inputfeltet
+    // Get the length of the text in the input field
     const textLength = inputfield.value.length;
 
-    // Opdater tekst i CharacterCount-paragraphen
+    // Update the text in the CharacterCount paragraph
     CharacterCount.textContent = `Character count: ${textLength}`; }

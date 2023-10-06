@@ -31,7 +31,7 @@ if (!empty($myInput)) {
         }
 
         if (empty($chatbotResponse)) {
-            $chatbotResponse = "I don't have information on that topic."; // Default response
+            $chatbotResponse = "Jeg har ikke informationer omkring dette emne."; // Default response
         }
     }
 

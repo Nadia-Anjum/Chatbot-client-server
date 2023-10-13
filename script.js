@@ -30,6 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
             })
                 .then(response => response.json())
                 .then(data => {
+
+                    // to print the data in the console
+                    console.log(userInput, data);
+                    
                     // Append user's input to chatbox
                     appendMessage(userInput, 'sent');
                     // Wait for a short delay before appending chatbot's response

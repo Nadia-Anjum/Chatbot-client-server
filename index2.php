@@ -22,6 +22,7 @@
 
             </ul>
 
+            
             <p id="CharacterCount">Character count: 0</p>
 
             <form class="user-input">

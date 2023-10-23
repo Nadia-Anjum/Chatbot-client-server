@@ -1,4 +1,7 @@
 <?php 
+// Managing Chat History in Session Variables.
+
+
 // Check if the 'history' session variable exists
 if (!isset($_SESSION['history'])) {
     $_SESSION['history'] = array(); // Initialize history as an empty array if it doesn't exist

@@ -33,7 +33,7 @@ if (!empty($myInput)) {
         $copenhagenFacts = array(
             "hovedstad" => "København er hovedstaden i Danmark.",
             "indbygger" => "København har en befolkning på cirka 600.000 mennesker.",
-            "kendt" => "En berømt vartegn i Danmark er Den Lille Havfrue.",
+            "kendt" => "En berømt vartegn i Danmark og København er Den Lille Havfrue.",
             "sprog" => "Det officielle sprog i Danmark er dansk.",
             "mad" => "København er kendt for sin lækre madscene og nordisk køkken. Det man spiser tit kan være smørrebrød."
         );

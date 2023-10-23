@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(data => {
 
                     // to print the data in the console
-                    console.log(userInput, data);
+                    console.log(data);
                     
                     // Append user's input to chatbox
                     appendMessage(userInput, 'sent');
@@ -69,7 +69,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function appendMessage(messageText, messageType) {
         const messageElement = document.createElement('li');
         messageElement.className = `message ${messageType}`;
-        messageElement.textContent = messageText;
+
+        console.log(messageText);
+
+        if(messageText?.message){
+            messageElement.textContent = messageText.message;
+        }else{
+            messageElement.textContent = messageText;
+        }
         chatbox.appendChild(messageElement);
     }
 });
